@@ -36,7 +36,7 @@
     "git:fetch": "git fetch --prune --tags",
     "git:submodules": "git submodule update --init --recursive",
     "build": "npm run build:all && npm run build:ext",
-    "build:all": "npm run build:icons",
+    "build:all": "npm run build:icons && npm run build:js",
     "build:css": "postcss css/styles/index.css -o css/styles/index.min.css -u postcss-import postcss-cssnext cssnano -m",
     "build:js": "rollup js/share.js -o js/share.min.js -f iife -m",
     "build:icons": "svg-sprite-generate -c img/icons.csv -o img/icons.svg",
