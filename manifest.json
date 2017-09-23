@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "developer": {
+    "name": "Chris Zuber",
+    "url": "https://chriszuber.com"
+  },
+  "version": "0.1.0",
+  "description": "__MSG_extensionDescription__",
+  "homepage_url": "https://github.com/shgysk8zer0/awesome-share",
+  "icons": {
+    "48": "img/share-16-windows-dark.svg"
+  },
+  "default_locale": "en",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "page_action": {
+    "default_icon": "img/share-16-windows-dark.svg",
+    "default_popup": "index.html",
+    "default_title": "__MSG_pageActionTooltip__",
+    "browser_style": true
+  },
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  "content_security_policy": "default-src 'self'"
+}
