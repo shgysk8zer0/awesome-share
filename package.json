@@ -33,10 +33,12 @@
     "web-ext": "^2.0.0"
   },
   "scripts": {
+    "git:fetch": "git fetch --prune --tags",
+    "git:submodules": "git submodule update --init --recursive",
     "build": "npm run build:all && npm run build:ext",
     "build:all": "npm run build:icons",
     "build:css": "postcss css/styles/index.css -o css/styles/index.min.css -u postcss-import postcss-cssnext cssnano -m",
-    "build:js": "webpack",
+    "build:js": "rollup js/share.js -o js/share.min.js -f iife -m",
     "build:icons": "svg-sprite-generate -c img/icons.csv -o img/icons.svg",
     "build:ext": "web-ext build -i .git/ screenshot.png package.json node_modules/ img/logos img/adwaita-icons docs/ img/ web-ext-artifacts/ '*.log*' -o",
     "lint:js": "eslint .",
