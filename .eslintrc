@@ -28,6 +28,6 @@
     },
     "globals": {
         "URLSearchParams": false,
-        "ga": false
+        "browser": false
     }
 }
