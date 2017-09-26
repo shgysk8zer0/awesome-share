@@ -17,7 +17,7 @@
     "storage"
   ],
   "page_action": {
-    "default_icon": "img/share-16-windows-dark.svg",
+    "default_icon": "img/share-windows-dark.svg",
     "default_popup": "index.html",
     "default_title": "__MSG_pageActionTooltip__",
     "browser_style": true
