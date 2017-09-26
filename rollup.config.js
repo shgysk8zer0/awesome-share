@@ -3,6 +3,6 @@ export default {
 	output: {
 		file: 'js/share.min.js',
 		format: 'iife',
-		sourceMap: true
+		sourcemap: true
 	}
 };
