@@ -1,9 +1,8 @@
 import {shares} from './consts.js';
-
 async function share({
-	title = document.title,
-	text = '',
-	url = location.href
+	title,
+	text,
+	url
 } = {}) {
 	const size = 64;
 	const template = document.getElementById('share-template').content;
@@ -17,9 +16,15 @@ async function share({
 		link.title = `Share on ${share.title}`;
 		link.href = getShareLink(share.url, title, text, url);
 		entry.querySelector('use').setAttribute('xlink:href', share.icon);
+		link.addEventListener('click', click => {
+			click.preventDefault();
+			browser.windows.create(link.href);
+		});
 		container.appendChild(entry);
 	});
 }
+
+
 
 function getShareLink(href, title, text, url) {
 	const shareURL = new URL(href);
@@ -43,8 +48,12 @@ function getShareLink(href, title, text, url) {
 	return shareURL.toString();
 }
 
-if (! ('share' in Navigator.prototype)) {
-	Navigator.prototype.share = share;
+function init() {
+	const shareThis = new URL(location.href);
+	share({
+		url: shareThis.searchParams.get('url'),
+		title: shareThis.searchParams.get('title'),
+		text: shareThis.searchParams.get('title')
+	});
 }
-
-window.addEventListener('load', navigator.share, {once: true});
+window.addEventListener('load', init, {once: true});
